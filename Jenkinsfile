@@ -14,7 +14,7 @@ pipeline {
         stage('Set Permissions'){
             steps{
                 script{
-                    sh 'chmod +x ./mvnw'
+                    sh 'chmod +x ./employee-manager/mvnw'
                 }
             }
         }
