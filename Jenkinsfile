@@ -11,6 +11,13 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Set Permissions'){
+            steps{
+                script{
+                    sh 'chmod +x ./mvnw'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 dir('employee-manager') {
