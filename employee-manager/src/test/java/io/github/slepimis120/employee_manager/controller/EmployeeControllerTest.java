@@ -34,7 +34,7 @@ public class EmployeeControllerTest {
     public void testInsertEmployee() throws Exception {
         when(employeeService.insert(any(Employee.class))).thenReturn(ResponseEntity.ok("Employee added successfully"));
 
-        mockMvc.perform(post("/employee/add")
+        mockMvc.perform(post("/employee/insert")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"John\",\"surname\":\"Doe\",\"birthYear\":\"1990\",\"email\":\"john.doe@example\",\"gender\":\"Male\"}"))
                 .andExpect(status().isOk())
