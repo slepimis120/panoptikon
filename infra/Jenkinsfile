@@ -9,7 +9,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
-                githubNotify context: 'CI Build', status: 'PENDING', description: 'Build is running...'
             }
         }
 
@@ -40,16 +39,6 @@ pipeline {
     post {
         always {
             cleanWs()
-        }
-        success {
-            script {
-                githubNotify context: 'CI Build', status: 'SUCCESS', description: 'Build successful! 🎉'
-            }
-        }
-        failure {
-            script {
-                githubNotify context: 'CI Build', status: 'FAILURE', description: 'Build failed ❌'
-            }
         }
     }
 }
