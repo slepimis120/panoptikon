@@ -1,14 +1,15 @@
 pipeline {
     agent any
 
-    triggers {
-        githubPush()
+    environment {
+        GITHUB_STATUS = 'success'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
+                githubNotify context: 'CI Build', status: 'PENDING', description: 'Build is running...'
             }
         }
 
@@ -41,10 +42,14 @@ pipeline {
             cleanWs()
         }
         success {
-            echo 'Build succeeded!'
+            script {
+                githubNotify context: 'CI Build', status: 'SUCCESS', description: 'Build successful! 🎉'
+            }
         }
         failure {
-            echo 'Build failed!'
+            script {
+                githubNotify context: 'CI Build', status: 'FAILURE', description: 'Build failed ❌'
+            }
         }
     }
 }

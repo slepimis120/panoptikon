@@ -3,10 +3,13 @@ antisamy-markup-formatter:latest
 build-timeout:latest
 cloudbees-folder:latest
 configuration-as-code:latest
+credentials:latest
 credentials-binding:latest
 email-ext:latest
 git:latest
 github-branch-source:latest
+github-checks:latest
+github-oauth:latest
 gradle:latest
 job-dsl:latest
 ldap:latest

@@ -1,11 +1,24 @@
 jenkins:
   securityRealm:
-    local:
-      allowsSignup: false
-      users:
-        - id: "admin"
-          password: "admin"
+    github:
+      clientID: "${GITHUB_CLIENT_ID}"
+      clientSecret: "${GITHUB_CLIENT_SECRET}"
+      githubApiUri: "https://api.github.com"
+      githubWebUri: "https://github.com"
+      oauthScopes: "read:org,repo;admin:repo_hook"
+
   authorizationStrategy: loggedInUsersCanDoAnything
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "GLOBAL_CREDENTIALS_ID"
+              description: "Global credentials for Jenkins"
+              username: "${JENKINS_USERNAME}"
+              password: "${JENKINS_PASSWORD}"
 
 jobs:
   - file: /var/jenkins_home/github-pipeline.groovy

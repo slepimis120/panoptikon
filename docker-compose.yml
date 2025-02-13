@@ -9,6 +9,10 @@ services:
       - ./jenkins_deploy_key:/var/jenkins_home/.ssh/id_ed25519:ro
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/jenkins.yaml
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+      - JENKINS_USERNAME=${JENKINS_USERNAME}
+      - JENKINS_PASSWORD=${JENKINS_PASSWORD}
     restart: on-failure
 
 volumes:
