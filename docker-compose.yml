@@ -1,11 +1,12 @@
 services:
   jenkins:
-    build: .
+    build: ./
     ports:
       - "8080:8080"
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
+      - ./jenkins_deploy_key:/var/jenkins_home/.ssh/id_ed25519:ro
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/jenkins.yaml
     restart: on-failure

@@ -52,3 +52,6 @@ employee-data.txt
 
 .idea/
 target/
+
+jenkins_deploy_key
+jenkins_deploy_key.pub

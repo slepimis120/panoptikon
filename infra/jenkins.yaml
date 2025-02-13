@@ -6,3 +6,6 @@ jenkins:
         - id: "admin"
           password: "admin"
   authorizationStrategy: loggedInUsersCanDoAnything
+
+jobs:
+  - file: /var/jenkins_home/github-pipeline.groovy
