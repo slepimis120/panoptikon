@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4.1.0
-  Build:
+  Test:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -25,17 +25,11 @@ jobs:
         java-version: '21'
     - name: set execute permission
       run: chmod +x ./employee-manager/mvnw
-    - name: sh
+    - name: Build
       shell: bash
       run: "./mvnw clean install"
       working-directory: employee-manager
-  Test:
-    runs-on: ubuntu-latest
-    needs: Build
-    steps:
-    - name: checkout
-      uses: actions/checkout@v4.1.0
-    - name: sh
+    - name: Test
       shell: bash
       run: "./mvnw test"
       working-directory: employee-manager
@@ -45,7 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
     - Checkout
-    - Build
     - Test
     steps:
     - name: clean workspace
