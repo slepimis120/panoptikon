@@ -1,7 +1,9 @@
 # Panoptikon - Spring Boot + Jenkins + GitHub Actions project
 
-![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ***
 Dummy Spring Boot project with focus on Jenkins pipelines. The Jenkins instance is configured to build the application on every push. If a branch does not pass all tests, it cannot be merged with the `develop` branch.
 
