@@ -48,6 +48,7 @@ go.work.sum
 
 # env file
 .env
+.env.local
 employee-data.txt
 
 .idea/
