@@ -1,13 +1,13 @@
-# Seobe - Jenkins to GitHub Actions Tool
-GoLang tool that converts Jenkinsfile into GitHub Actions workflows.
+# Panoptikon - Spring Boot + Jenkins + GitHub Actions project
+
+![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 ***
-## Part 1: Dummy Jenkins and Spring Boot Application + Test
+Dummy Spring Boot project with focus on Jenkins pipelines. The Jenkins instance is configured to build the application on every push. If a branch does not pass all tests, it cannot be merged with the `develop` branch.
 
-This part of the project sets up a Jenkins instance to build a simple Spring Boot CRUD application. The Jenkins instance is configured to build the application on every push. If a branch does not pass all tests, it cannot be merged with the `develop` branch.
+## Prerequisites
 
-### Prerequisites
-
-1. **Fill in the following environment variables in the `.env` file:**
+1. **Fill in the following environment variables in the `.env` file based on the .example.env file:**
    - `GITHUB_CLIENT_ID` - Github App Client ID
    - `GITHUB_CLIENT_SECRET` - Github App Client Secret
    - `JENKINS_USERNAME` - GitHub username
@@ -32,26 +32,11 @@ This part of the project sets up a Jenkins instance to build a simple Spring Boo
 
 7. **Configure the GitHub repository to use the correct ngrok link.**
 
-### Spring Boot Application
+## Spring Boot Application
 The Spring Boot application is a simple CRUD application with minimal tests. The focus of the application is to demonstrate the Jenkins to GitHub Actions conversion.
 
-### Jenkins Configuration
+## Jenkins Configuration
 The Jenkins instance is configured to:
 - Build the Spring Boot application on every push.
 - Prevent merging branches that do not pass all tests with the develop branch
 - Build and test all pull requests and branches, indicating whether they pass or fail.
-***
-## Part 2: Jenkins2GitHub
-The second part of the application, which converts Jenkins pipelines to GitHub Actions workflows, is not yet set up.
-
-### Requirements
-- Docker
-
-### Setup
-
-1. Fill in the environment variables in the .env.local file based on the .example.env.local file.
-
-2. Start the Docker instance:
-   ```sh
-   docker-compose up --build
-   ```
