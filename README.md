@@ -28,9 +28,9 @@ This part of the project sets up a Jenkins instance to build a simple Spring Boo
 
 5. **Find the ngrok link on the ngrok dashboard.**
 
-6. Configure the application to use the correct ngrok link.
+6. **Configure the GitHub application to use the correct ngrok link.**
 
-7. Configure the repository to use the correct ngrok link.
+7. **Configure the GitHub repository to use the correct ngrok link.**
 
 ### Spring Boot Application
 The Spring Boot application is a simple CRUD application with minimal tests. The focus of the application is to demonstrate the Jenkins to GitHub Actions conversion.
@@ -44,6 +44,14 @@ The Jenkins instance is configured to:
 ## Part 2: Jenkins2GitHub
 The second part of the application, which converts Jenkins pipelines to GitHub Actions workflows, is not yet set up.
 
-### Future Work
-- Implement the Jenkins2GitHub conversion functionality.
-- Ensure seamless integration between Jenkins and GitHub Actions.
+### Requirements
+- Docker
+
+### Setup
+
+1. Fill in the environment variables in the .env.local file based on the .example.env.local file.
+
+2. Start the Docker instance:
+   ```sh
+   docker-compose up --build
+   ```
