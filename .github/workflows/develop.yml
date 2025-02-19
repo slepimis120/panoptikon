@@ -18,6 +18,11 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4.1.0
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '21'
     - name: set execute permission
       run: chmod +x ./employee-manager/mvnw
     - name: sh
