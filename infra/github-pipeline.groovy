@@ -1,9 +1,9 @@
-multibranchPipelineJob('seobe') {
+multibranchPipelineJob('panoptikon') {
     branchSources {
         github {
             id('1')
             repoOwner('slepimis120')
-            repository('seobe')
+            repository('panoptikon')
             scanCredentialsId('GLOBAL_CREDENTIALS_ID')
         }
     }

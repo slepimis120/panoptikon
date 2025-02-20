@@ -1,4 +1,4 @@
-name: seobe/develop
+name: panoptikon/develop
 on:
   push:
     branches:
