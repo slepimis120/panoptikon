@@ -1,6 +1,11 @@
 name: panoptikon-1
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
 jobs:
   Checkout:
     runs-on: ubuntu-latest
