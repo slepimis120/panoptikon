@@ -1,0 +1,60 @@
+name: panoptikon-1
+on:
+  workflow_dispatch:
+jobs:
+  Checkout:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.1.0
+  Set_Permissions:
+    name: Set Permissions
+    runs-on: ubuntu-latest
+    needs: Checkout
+    steps:
+    - name: Run script command
+      run: sh 'chmod +x ./employee-manager/mvnw'
+  Build:
+    runs-on: ubuntu-latest
+    needs: Set_Permissions
+    steps:
+    - name: Cache Maven dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    - name: sh
+      shell: bash
+      run: "./mvnw clean install"
+      working-directory: employee-manager
+  Test:
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+    - name: Cache Maven dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    - name: sh
+      shell: bash
+      run: "./mvnw test"
+      working-directory: employee-manager
+  Post-Build:
+    if: always()
+    name: Post Build
+    runs-on: ubuntu-latest
+    needs:
+    - Checkout
+    - Set_Permissions
+    - Build
+    - Test
+    steps:
+    - name: clean workspace
+      shell: bash
+      run: rm -rf ${{ github.workspace }}/*
+      if: always()
